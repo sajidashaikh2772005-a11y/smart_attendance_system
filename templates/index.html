@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="tag">OPEN CV • PYTHON • FLASK</p>
+        <h1>Smart Attendance<br>System</h1>
+        <p>Automatically identify registered students and record attendance using a webcam.</p>
+        <a class="btn" href="/start_attendance">Start Attendance</a>
+    </div>
+</section>
+
+<div class="cards">
+    <div class="card"><span>Total Students</span><strong>{{ total }}</strong></div>
+    <div class="card"><span>Present Today</span><strong>{{ present }}</strong></div>
+    <div class="card"><span>System</span><strong>Ready</strong></div>
+</div>
+
+<div class="panel">
+    <div class="panel-head">
+        <h2>Registered Students</h2>
+        <a href="/register" class="small-btn">+ Add Student</a>
+    </div>
+    <table>
+        <tr><th>ID</th><th>Name</th><th>Department</th><th>Registered</th></tr>
+        {% for s in students %}
+        <tr><td>{{ s.student_id }}</td><td>{{ s.name }}</td><td>{{ s.department }}</td><td>{{ s.created_at }}</td></tr>
+        {% else %}
+        <tr><td colspan="4">No students registered yet.</td></tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

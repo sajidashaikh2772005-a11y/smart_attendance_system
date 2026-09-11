@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Register Student{% endblock %}
+{% block content %}
+<div class="form-panel">
+    <h1>Register Student</h1>
+    <p>Add student details and capture face images from the webcam.</p>
+    {% if error %}<div class="error">{{ error }}</div>{% endif %}
+    <form method="POST">
+        <label>Student ID</label>
+        <input name="student_id" placeholder="Example: 101" required>
+        <label>Student Name</label>
+        <input name="name" placeholder="Example: Rahul Kumar" required>
+        <label>Department</label>
+        <input name="department" placeholder="Example: DAIML">
+        <button class="btn" type="submit">Register & Capture Face</button>
+    </form>
+</div>
+{% endblock %}

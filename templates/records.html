@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Attendance Records{% endblock %}
+{% block content %}
+<div class="panel">
+    <div class="panel-head">
+        <h1>Attendance Records</h1>
+        <a class="small-btn" href="/export">Export CSV</a>
+    </div>
+    <table>
+        <tr><th>ID</th><th>Name</th><th>Date</th><th>Time</th><th>Status</th></tr>
+        {% for r in records %}
+        <tr><td>{{ r.student_id }}</td><td>{{ r.name }}</td><td>{{ r.date }}</td><td>{{ r.time }}</td><td><span class="present">{{ r.status }}</span></td></tr>
+        {% else %}
+        <tr><td colspan="5">No attendance records yet.</td></tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
